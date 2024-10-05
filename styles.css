@@ -1,0 +1,321 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212;
+    color: #E0E0E0;
+    margin: 0;
+    padding: 32px;
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    margin: 0;
+    padding: 16px;
+    border-radius: 10px;
+    background-color: #1b1b1b;
+    display: flex;
+    flex-direction: column; /* Flexbox ensures proper alignment and no overlap */
+    align-items: flex-start; /* Align content to the left */
+    overflow-x: auto;
+}
+
+/* Flexbox layout for title, debt, and button */
+#TitleAndDebt {
+    width: 100%;
+    padding-right: 16px;
+    display: flex;
+    justify-content: space-between; /* Space between title/debt and button */
+    align-items: center; /* Align button vertically with the text */
+    flex-wrap: wrap; /* Allow wrapping if space is insufficient */
+}
+
+#TextAndButton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* Add User Button */
+#addUserButton, #addNewButton {
+    background-color: #2197e6;
+    border: 1px solid #2197e6;
+    font-weight: 500;
+    margin: 16px;
+    width: 150px;
+    padding: 8px 16px;
+}
+
+/* Header Styling */
+h1 {
+    text-align: left;
+    color: #F5F5F5;
+    width: 80%;
+}
+
+/* Styling for the total debt section */
+.debt-label {
+    padding-right: 8px;
+    font-size: 24px;
+    color: #ffffff;
+    font-weight: 300;
+}
+
+.debt-value {
+    font-size: 24px;
+    color: #ff8800;
+    font-weight: 500;
+}
+
+/* Info text styling */
+#infoText {
+    color: #ffffff79;
+    font-size: 13px;
+}
+
+#TitleAndButton {
+    display: flex;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    border-collapse: collapse;
+    background-color: #2A2A2A;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+th, td {
+    padding: 8px 16px;
+    text-align: left;
+    border-bottom: 1px solid #333;
+}
+
+th {
+    background-color: #333;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* Name cell styling */
+td.nameCell {
+    margin: 8px;
+    text-align: left;
+    color: #ffffff;
+    word-wrap: break-word;
+}
+td.nameCell:hover {
+    text-decoration: underline;
+    color: #ffffff;
+}
+
+/* Alternate row colors */
+tr:nth-child(even) {
+    background-color: #1F1F1F;
+}
+
+tr:nth-child(odd) {
+    background-color: #2A2A2A;
+}
+
+/* Hover effects for table headers */
+#debtHeader:hover, #nameHeader:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* Common Button Styling */
+.btn, button {
+    background-color: #2197e6;
+    border: 1px solid #2197e6;
+    padding: 8px;
+    margin: auto;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    font-family: inherit;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.btn:hover, button:hover {
+    opacity: 0.9;
+}
+
+.btn:active, button:active {
+    opacity: 0.8;
+}
+
+#addUserButton:hover, #addNewButton:hover {
+    background-color: #156296;
+    border-color: #42a9ee;
+}
+
+/* Cancel Button Styling */
+#cancelButton, #cancelDeleteButton {
+    background-color: transparent;
+    border: 1px solid #555555;
+    color: #fff;
+}
+
+#cancelButton:hover, #cancelDeleteButton:hover {
+    border-color: #ffffff;
+}
+
+/* Delete Button */
+table button.delete, #confirmDeleteButton {
+    background-color: #d44300;
+    border: 1px solid #d44300;
+    font-weight: 500;
+}
+
+table button.delete:hover, #confirmDeleteButton:hover {
+    background-color: #ac3600;
+    border-color: #d44300;
+}
+
+/* Table Button Styling */
+table button {
+    padding: 5px 10px;
+    margin: 5px;
+    background-color: #2197e6;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: white;
+}
+
+table button.decrease {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+table button.decrease:hover {
+    border-color: rgba(255, 255, 255, 1);
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #1E1E1E;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #fff;
+    width: 80%;
+    color: #E0E0E0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.close {
+    color: #E0E0E0;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    color: #2197e6;
+    cursor: pointer;
+}
+
+/* Form Styling */
+form {
+    margin-top: 20px;
+}
+
+label {
+    font-size: 1rem;
+    color: #ffffff;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #2A2A2A;
+    color: #E0E0E0;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+input[type="text"]:focus, input[type="number"]:focus {
+    outline: none;
+    border-color: #2197e6;
+}
+/* Make title, total debt, and button appear in a single row on small screens */
+@media (max-width: 768px) {
+    #TitleAndDebt {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        padding-right: 0;  /* Remove excess padding on smaller screens */
+    }
+
+    h1 {
+        font-size: 1.5rem;  /* Reduce font size for the title */
+        margin-bottom: 8px;
+        flex: 1;
+    }
+
+    .debt-label, .debt-value {
+        font-size: 1.25rem;  /* Reduce the size of debt info */
+        padding-right: 8px;
+    }
+
+    #addUserButton {
+        margin: 0;  /* Remove extra margins */
+        padding: 8px 16px;
+        width: auto;  /* Auto width to fit the content */
+        font-size: 0.9rem;
+    }
+}
+
+/* Make the table more compact on small screens */
+@media (max-width: 480px) {
+    table {
+        width: 100%;  /* Ensure the table doesn't overflow the container */
+    }
+
+    th, td {
+        padding: 6px;  /* Reduce padding */
+        font-size: 0.8rem;  /* Reduce font size */
+    }
+
+    button {
+        padding: 4px 6px;  /* Reduce button size */
+        font-size: 0.7rem;  /* Reduce button font size */
+    }
+
+    /* Hide the action buttons and replace them with icons */
+    td.increaseCell, td.decreaseCell, td.deleteCell {
+        display: none;  /* Hide buttons to save space */
+    }
+
+}
