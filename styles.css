@@ -7,17 +7,19 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #121212;
     color: #E0E0E0;
     margin: 0;
     padding: 32px;
     line-height: 1.6;
+    background: linear-gradient(to top,#000000, #001318);
+    background-attachment: fixed; 
 }
 
 .container {
     width: 100%;
     margin: 0;
     padding: 16px;
+    border: 1px solid #ffffff33;
     border-radius: 10px;
     background-color: #1b1b1b;
     display: flex;
@@ -57,7 +59,6 @@ body {
 h1 {
     text-align: left;
     color: #F5F5F5;
-    width: 80%;
 }
 
 /* Styling for the total debt section */
@@ -69,23 +70,15 @@ h1 {
 }
 
 .debt-value {
-    font-size: 24px;
+    border-radius: 32px;
+    font-size: 18px;
     color: #ff8800;
     font-weight: 500;
 }
-
-/* Info text styling */
-#infoText {
-    color: #ffffff79;
-    font-size: 13px;
-}
-
-#TitleAndButton {
-    display: flex;
-}
-
 /* Table Styling */
 table {
+    table-layout: fixed;
+    white-space: nowrap;
     width: 100%;
     margin-top: 16px;
     margin-bottom: 16px;
@@ -100,6 +93,9 @@ th, td {
     padding: 8px 16px;
     text-align: left;
     border-bottom: 1px solid #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 th {
@@ -113,7 +109,6 @@ td.nameCell {
     margin: 8px;
     text-align: left;
     color: #ffffff;
-    word-wrap: break-word;
 }
 td.nameCell:hover {
     text-decoration: underline;
@@ -179,6 +174,9 @@ table button.delete, #confirmDeleteButton {
     background-color: #d44300;
     border: 1px solid #d44300;
     font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
 }
 
 table button.delete:hover, #confirmDeleteButton:hover {
@@ -203,6 +201,26 @@ table button.decrease {
 
 table button.decrease:hover {
     border-color: rgba(255, 255, 255, 1);
+}
+/* Add animation for the +1 and -1 buttons */
+td button.increase, td button.decrease {
+    background-color: #2197e6;
+    border: 1px solid #2197e6;
+    color: white;
+    transition: all 0.2s ease;
+}
+
+/* Hover effect to indicate interactivity */
+td button.increase:hover, td button.decrease:hover {
+    background-color: #156296;
+    transform: translateY(-2px);  /* Slight upward movement */
+}
+
+/* Active state - when button is clicked */
+td button.increase:active, td button.decrease:active {
+    background-color: #42a9ee;  /* Lighter color on click */
+    transform: scale(0.95);  /* Button slightly shrinks */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);  /* Subtle shadow to emphasize action */
 }
 
 /* Modal Styling */
@@ -289,33 +307,69 @@ input[type="text"]:focus, input[type="number"]:focus {
         padding-right: 8px;
     }
 
-    #addUserButton {
-        margin: 0;  /* Remove extra margins */
-        padding: 8px 16px;
-        width: auto;  /* Auto width to fit the content */
-        font-size: 0.9rem;
-    }
 }
 
 /* Make the table more compact on small screens */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
     table {
-        width: 100%;  /* Ensure the table doesn't overflow the container */
+        width: 100%;  
     }
 
     th, td {
-        padding: 6px;  /* Reduce padding */
-        font-size: 0.8rem;  /* Reduce font size */
-    }
+        padding: 6px;  
+        font-size: 0.8rem;  
 
     button {
-        padding: 4px 6px;  /* Reduce button size */
-        font-size: 0.7rem;  /* Reduce button font size */
+        padding: 4px 6px;  
+        font-size: 0.7rem;  
     }
+}
 
-    /* Hide the action buttons and replace them with icons */
-    td.increaseCell, td.decreaseCell, td.deleteCell {
-        display: none;  /* Hide buttons to save space */
-    }
+}
 
+#lastActiveUser {
+    font-size: 1rem;
+    color: #ffffff;
+    margin-top: 10px;
+}
+
+#lastActiveUser .last-user {
+    color: #7ab800; 
+    font-weight: 500;
+    font-size: 1rem;
+
+}
+
+/* Style to highlight the user name in the confirmation modal */
+.highlight {
+    font-weight: bold;
+    color: #00d5ff;   
+    background-color: rgba(0, 0, 0, 0.2);  
+    padding: 2px 5px; 
+    border-radius: 3px; 
+}
+.debtHighlight {
+    font-weight: bold;
+    color: #ff8800;   
+    background-color: rgba(0, 0, 0, 0.2);  
+    padding: 2px 5px; 
+    border-radius: 3px; 
+}
+#searchInput {
+    padding: 10px;
+    font-size: 1rem;
+    width: 100%;
+    margin-bottom: 10px;
+    border: 1px solid #cccccc5d;
+    border-radius: 5px;
+}
+@keyframes bounce {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+td button.increase:active, td button.decrease:active {
+    animation: bounce 0.2s ease-in-out;  /* Bounce effect on click */
+    background-color: #42a9ee;
 }
